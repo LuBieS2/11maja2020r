@@ -1,6 +1,9 @@
 #https://cke.gov.pl/images/_EGZAMIN_MATURALNY_OD_2015/Arkusze_egzaminacyjne/2020/formula_od_2015/informatyka/MIN-R2_1P-202.pdf
 from sympy import isprime
-file=open("przyklad.txt", "r")
+import string
+Alphabet=list(string.ascii_lowercase)
+print(Alphabet)
+file=open("pary.txt", "r")
 pairs=list(map(str.strip, file))
 pairs = [item.split(" ") for item in pairs]
 #4.1
@@ -35,3 +38,27 @@ for word in words:
             counter=1
     print(biggest, word[b])
 #4.3
+lrd=[]
+for i in pairs:
+    if int(i[0])==len(i[1]):
+        lrd.append(i)
+print(lrd)
+smallest_number = lrd[0][0]
+smaller_pairs=[]
+for pair in lrd:
+    smallest_number = lrd[0][0]
+    if int(pair[0])<int(smallest_number):
+        smallest_number=pair[0]
+print(smallest_number)
+for pair in lrd:
+    if int(pair[0])!=int(smallest_number):
+        lrd.remove(pair)
+print(lrd)
+for p1 in lrd:
+    for p2 in lrd:
+        if p1!=p2:
+            for i in range(len(p1[1])):
+                if Alphabet.index(p1[1][i]) > Alphabet.index(p2[1][i]):
+                    lrd.remove(p2)
+                    break
+print(lrd)
