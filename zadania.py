@@ -42,22 +42,23 @@ lrd=[]
 for i in pairs:
     if int(i[0])==len(i[1]):
         lrd.append(i)
-print(lrd)
 smallest_number = lrd[0][0]
 smaller_pairs=[]
 for pair in lrd:
     smallest_number = lrd[0][0]
     if int(pair[0])<int(smallest_number):
         smallest_number=pair[0]
-print(smallest_number)
 for pair in lrd:
     if int(pair[0])!=int(smallest_number):
         lrd.remove(pair)
 print(lrd)
-for p1 in lrd:
-    for p2 in lrd:
-            for i in range(len(p1[1])):
-                if Alphabet.index(p1[1][i]) > Alphabet.index(p2[1][i]):
-                    lrd.remove(p2)
-                    break
+while len(lrd)!=1:
+    for p1 in lrd:
+        for p2 in lrd:
+            if p1!=p2:
+                for i in range(len(p1[1])):
+                    if Alphabet.index(p1[1][i]) > Alphabet.index(p2[1][i]):
+                        if p1 in lrd:
+                            lrd.remove(p1)
+                        #break
 print(lrd)
