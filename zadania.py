@@ -56,7 +56,6 @@ for pair in lrd:
 print(lrd)
 for p1 in lrd:
     for p2 in lrd:
-        if p1!=p2:
             for i in range(len(p1[1])):
                 if Alphabet.index(p1[1][i]) > Alphabet.index(p2[1][i]):
                     lrd.remove(p2)
